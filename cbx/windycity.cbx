@@ -518,8 +518,11 @@
                or togl {nopages}}
     {}
     {\ifboolexpr{ test {\ifentrytype{article}}
-                  or test {\ifentrytype{review}}}
-       {\iffieldundef{postnote}
+                  or test {\ifentrytype{review}}
+                  or test {\ifentrytype{incollection}}
+                  or test {\ifentrytype{inbook}}}
+       {\ifboolexpr{ test {\iffieldundef{postnote}}
+                  or test {\iffieldequals{postnote}{}}}
           {\iftoggle{shortlinks}
              {\printfield{pages}}%
              {\printtext[bibhyperref]{\printfield{pages}}}}
